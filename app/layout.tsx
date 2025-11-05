@@ -3,6 +3,8 @@ import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeContext";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://restaurant-management-system.roboticela.com";
+
 export const metadata: Metadata = {
   title: {
     default: "Restaurant Management System - Modern POS Solution",
@@ -35,9 +37,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://restaurant-management-system.roboticela.com"),
+  metadataBase: new URL(siteUrl),
   alternates: {
-    canonical: "/",
+    canonical: new URL(siteUrl).toString(),
   },
   openGraph: {
     type: "website",
