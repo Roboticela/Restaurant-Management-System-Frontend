@@ -55,8 +55,8 @@ export default function DownloadCard({ platform, icon: Icon, files, color }: Dow
           <motion.a
             key={fileIndex}
             href={getDownloadUrl(file, platform)}
-            target={file.store ? '_blank' : undefined}
-            rel={file.store ? 'noopener noreferrer' : undefined}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="w-full py-3 bg-white/20 hover:bg-white/30 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer"
