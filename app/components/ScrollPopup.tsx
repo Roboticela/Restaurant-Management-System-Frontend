@@ -59,16 +59,16 @@ export default function ScrollPopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-lg mx-4"
+            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[calc(100%-2rem)] sm:w-full max-w-lg"
           >
-            <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 relative">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 relative">
               {/* Close Button */}
               <button
                 onClick={handleClose}
-                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
                 aria-label="Close"
               >
-                <FaTimes className="w-6 h-6" />
+                <FaTimes className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
 
               {/* Icon */}
@@ -80,10 +80,10 @@ export default function ScrollPopup() {
 
               {/* Content */}
               <div className="text-center mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-3">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-3">
                   Try Our Online Version!
                 </h2>
-                <p className="text-slate-600 dark:text-gray-300 mb-4">
+                <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 mb-4">
                   Access Restaurant Management System from anywhere, anytime. No installation required.
                 </p>
                 
@@ -91,19 +91,19 @@ export default function ScrollPopup() {
                 <div className="space-y-2 mb-6 text-left">
                   <div className="flex items-center gap-2 text-slate-700 dark:text-gray-300">
                     <FaCheckCircle className="text-teal-600 dark:text-teal-400 shrink-0" />
-                    <span>Access from any device with a web browser</span>
+                    <span className="text-sm sm:text-base">Access from any device with a web browser</span>
                   </div>
                   <div className="flex items-center gap-2 text-slate-700 dark:text-gray-300">
                     <FaCheckCircle className="text-teal-600 dark:text-teal-400 shrink-0" />
-                    <span>No installation or download required</span>
+                    <span className="text-sm sm:text-base">No installation or download required</span>
                   </div>
                   <div className="flex items-center gap-2 text-slate-700 dark:text-gray-300">
                     <FaCheckCircle className="text-teal-600 dark:text-teal-400 shrink-0" />
-                    <span>All features available in the cloud</span>
+                    <span className="text-sm sm:text-base">All features available in the cloud</span>
                   </div>
                   <div className="flex items-center gap-2 text-slate-700 dark:text-gray-300">
                     <FaCheckCircle className="text-teal-600 dark:text-teal-400 shrink-0" />
-                    <span>Automatic backups and sync</span>
+                    <span className="text-sm sm:text-base">Automatic backups and sync</span>
                   </div>
                 </div>
               </div>

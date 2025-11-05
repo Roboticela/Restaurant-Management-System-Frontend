@@ -28,7 +28,7 @@ export default function OnlineVersion() {
   };
 
   return (
-    <section className="py-16 md:py-24 px-4 bg-linear-to-br from-teal-500 via-purple-600 to-teal-600 dark:from-teal-600 dark:via-purple-700 dark:to-teal-700">
+    <section className="py-16 md:py-24 px-4 bg-linear-to-br from-teal-500 via-purple-600 to-teal-600 dark:from-teal-600 dark:via-purple-700 dark:to-teal-700 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"

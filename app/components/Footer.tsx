@@ -4,14 +4,14 @@ import { FaUtensils } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="py-12 px-4 bg-white/30 dark:bg-white/5 border-t border-white/20 dark:border-white/10">
+    <footer className="py-12 px-4 bg-white/30 dark:bg-white/5 border-t border-white/20 dark:border-white/10 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <FaUtensils className="w-6 h-6 text-teal-500 dark:text-teal-400" />
-            <span className="text-lg font-semibold text-slate-900 dark:text-white">Restaurant Management System</span>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <FaUtensils className="w-5 h-5 sm:w-6 sm:h-6 text-teal-500 dark:text-teal-400 shrink-0" />
+            <span className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white text-center md:text-left">Restaurant Management System</span>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <a 
               href="/privacy" 
               className="text-slate-600 dark:text-gray-300 hover:text-teal-600! dark:hover:text-teal-400! hover:underline underline-offset-4 transition-all duration-200 cursor-pointer"

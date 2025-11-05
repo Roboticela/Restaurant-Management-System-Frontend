@@ -8,10 +8,10 @@ import ThemeToggle from '../components/ThemeToggle';
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-100 via-purple-100 to-slate-100 
-      dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 transition-colors duration-300">
+      dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 transition-colors duration-300 overflow-x-hidden w-full max-w-full">
       
       {/* Theme Toggle */}
-      <div className="fixed safe-top safe-right z-50">
+      <div className="fixed top-4 right-4 z-50">
         <ThemeToggle />
       </div>
 
@@ -31,9 +31,9 @@ export default function TermsPage() {
             <span>Back to Home</span>
           </Link>
           
-          <div className="flex items-center gap-3 mb-6">
-            <FaFileContract className="w-10 h-10 text-teal-500 dark:text-teal-400" />
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
+          <div className="flex items-center gap-2 sm:gap-3 mb-6">
+            <FaFileContract className="w-8 h-8 sm:w-10 sm:h-10 text-teal-500 dark:text-teal-400 shrink-0" />
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white">
               Terms of Use
             </h1>
           </div>
@@ -50,20 +50,20 @@ export default function TermsPage() {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">1. Acceptance of Terms</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">1. Acceptance of Terms</h2>
             <p className="text-slate-600 dark:text-gray-300 leading-relaxed">
               By accessing and using Restaurant Management System ("the Software"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">2. License Agreement</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">2. License Agreement</h2>
             <p className="text-slate-600 dark:text-gray-300 leading-relaxed mb-4">
               Restaurant Management System is licensed under the <strong className="text-slate-900 dark:text-white">GNU Affero General Public License v3.0 (AGPL-3.0)</strong>. This means:
             </p>
             <div className="bg-white/50 dark:bg-white/5 rounded-xl p-6 space-y-4">
               <div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">✅ You CAN:</h3>
+                <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-2">✅ You CAN:</h3>
                 <ul className="list-disc list-inside space-y-2 text-slate-600 dark:text-gray-300 ml-4">
                   <li>Use the software for any purpose, including commercial use</li>
                   <li>Study how the software works and modify it</li>
@@ -72,7 +72,7 @@ export default function TermsPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">⚠️ You MUST:</h3>
+                <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-2">⚠️ You MUST:</h3>
                 <ul className="list-disc list-inside space-y-2 text-slate-600 dark:text-gray-300 ml-4">
                   <li>Disclose your source code when distributing</li>
                   <li>Include the original license and copyright notice</li>
@@ -82,7 +82,7 @@ export default function TermsPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">❌ You CANNOT:</h3>
+                <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-2">❌ You CANNOT:</h3>
                 <ul className="list-disc list-inside space-y-2 text-slate-600 dark:text-gray-300 ml-4">
                   <li>Hold the authors liable for damages</li>
                   <li>Use the authors' names for promotion without permission</li>
@@ -93,14 +93,14 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">3. No Warranty</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">3. No Warranty</h2>
             <p className="text-slate-600 dark:text-gray-300 leading-relaxed">
               THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">4. Data and Privacy</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">4. Data and Privacy</h2>
             <p className="text-slate-600 dark:text-gray-300 leading-relaxed mb-4">
               Restaurant Management System is designed to operate entirely offline. All data is stored locally on your device using SQLite database. We do not:
             </p>
@@ -116,7 +116,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">5. Modifications and Derivative Works</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">5. Modifications and Derivative Works</h2>
             <p className="text-slate-600 dark:text-gray-300 leading-relaxed">
               If you modify the Software, you must:
             </p>
@@ -129,21 +129,21 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">6. Network Server Use</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">6. Network Server Use</h2>
             <p className="text-slate-600 dark:text-gray-300 leading-relaxed">
               If you run a modified version of the Software on a server that is accessible over a network, you must provide all users with access to the complete source code of your modified version. This includes making the source code available through a web interface or other means that allows users to download it.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">7. Copyright</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">7. Copyright</h2>
             <p className="text-slate-600 dark:text-gray-300 leading-relaxed">
               Copyright © {new Date().getFullYear()} Roboticela. All rights reserved. The Software is free software released under the AGPL-3.0 license. You may copy, distribute, and modify it as permitted by the license terms.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">8. Contact Information</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">8. Contact Information</h2>
             <p className="text-slate-600 dark:text-gray-300 leading-relaxed">
               For questions about these Terms of Use or the Software license, please contact us:
             </p>
@@ -154,7 +154,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">9. Full License Text</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">9. Full License Text</h2>
             <p className="text-slate-600 dark:text-gray-300 leading-relaxed">
               The complete text of the GNU Affero General Public License v3.0 can be found at:
             </p>

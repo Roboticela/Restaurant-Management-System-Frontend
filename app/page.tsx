@@ -1,6 +1,5 @@
 'use client';
 
-import ThemeToggle from './components/ThemeToggle';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
@@ -23,13 +22,8 @@ import ScrollPopup from './components/ScrollPopup';
 export default function Home() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-100 via-purple-100 to-slate-100 
-      dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 transition-colors duration-300">
+      dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 transition-colors duration-300 overflow-x-hidden w-full max-w-full">
       
-      {/* Theme Toggle */}
-      <div className="fixed safe-top safe-right z-50">
-        <ThemeToggle />
-      </div>
-
       {/* Navigation */}
       <Navbar />
 

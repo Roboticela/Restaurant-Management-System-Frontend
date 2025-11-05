@@ -133,9 +133,9 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-100 via-purple-100 to-slate-100 
-      dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 transition-colors duration-300">
+      dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 transition-colors duration-300 overflow-x-hidden w-full max-w-full">
       {/* Theme Toggle */}
-      <div className="fixed safe-top safe-right z-50">
+      <div className="fixed top-4 right-4 z-50">
         <ThemeToggle />
       </div>
       
@@ -337,11 +337,11 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
-          className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-teal-500 text-white px-6 py-3 
-            rounded-xl flex items-center gap-2 z-50"
+          className="fixed bottom-4 left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 bg-teal-500 text-white px-4 sm:px-6 py-3 
+            rounded-xl flex items-center gap-2 z-50 max-w-md sm:mx-auto"
         >
-          <FaCheck className="text-xl" />
-          Message sent successfully! We'll get back to you soon.
+          <FaCheck className="text-xl shrink-0" />
+          <span className="text-sm sm:text-base">Message sent successfully! We'll get back to you soon.</span>
         </motion.div>
       )}
 
@@ -351,11 +351,11 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
-          className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-red-500 text-white px-6 py-3 
-            rounded-xl flex items-center gap-2 max-w-md z-50"
+          className="fixed bottom-4 left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 bg-red-500 text-white px-4 sm:px-6 py-3 
+            rounded-xl flex items-center gap-2 max-w-md sm:mx-auto z-50"
         >
           <FaExclamationTriangle className="text-xl shrink-0" />
-          <span>{errorMessage}</span>
+          <span className="text-sm sm:text-base break-words">{errorMessage}</span>
         </motion.div>
       )}
     </div>

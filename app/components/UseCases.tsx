@@ -45,7 +45,7 @@ const useCases = [
 
 export default function UseCases() {
   return (
-    <section className="py-16 md:py-24 px-4">
+    <section className="py-16 md:py-24 px-4 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"

@@ -49,7 +49,7 @@ const requirements = [
 
 export default function SystemRequirements() {
   return (
-    <section className="py-16 md:py-24 px-4 bg-white/30 dark:bg-white/5">
+    <section className="py-16 md:py-24 px-4 bg-white/30 dark:bg-white/5 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
