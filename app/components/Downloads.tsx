@@ -62,10 +62,10 @@ const downloadLinks = [
     platformKey: 'android',
     icon: FaAndroid,
     files: [
-      { format: 'apk', arch: 'aarch64', label: 'Android ARM64 (.apk)' },
-      { format: 'apk', arch: 'armv7', label: 'Android ARMv7 (.apk)' },
-      { format: 'apk', arch: 'x86_64', label: 'Android x64 (.apk)' },
-      { format: 'apk', arch: 'i686', label: 'Android x86 (.apk)' },
+      { format: 'apk', arch: 'aarch64', label: 'Android ARM64/AArch64 (.apk)' },
+      { format: 'apk', arch: 'armv7', label: 'Android ARMv7/ARMv8 (.apk)' },
+      { format: 'apk', arch: 'x86_64', label: 'Android x64/AMD64 (.apk)' },
+      { format: 'apk', arch: 'i686', label: 'Android x86/i386 (.apk)' },
       { store: 'Play Store' }
     ] as (DownloadFileConfig & { store?: string })[],
     color: 'from-green-500 to-green-600 dark:from-green-600 dark:to-green-700'
