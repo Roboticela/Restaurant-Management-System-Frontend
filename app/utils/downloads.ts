@@ -26,74 +26,62 @@ export interface PlatformConfig {
 export const CHECKSUMS: Record<string, { sha256?: string; sha512?: string }> = {
   // Windows
   'restaurant-management-system-windows-x64-1.0.0.exe': {
-    sha256: '87ba0979b04cc0083604e04be77f1af119a61fea7e755ee36f9d33d7840e1d14'
-  },
-  'restaurant-management-system-windows-x64-1.0.0.exe.sha256': {
-    sha256: '8954e083e661a2869847ddecd3874c09af49ee328b10fa1fd0ed0b1df35111d0'
-  },
-  'restaurant-management-system-windows-x64-1.0.0.exe.sha512': {
-    sha256: 'e99a756fda6f1e45f7d9bd8622e19c63901539a9fec63caf7893f979018a04ea'
+    sha256: 'd745d84712936aca406617da719b812d71eae332ebe56695a6987ec8dd9e5c04'
   },
   'restaurant-management-system-windows-x64-msi-1.0.0.msi': {
-    sha256: '0e5a473c760ad5f27d455fd236c458751574ac60f36ae65527374596a3365c96'
-  },
-  'restaurant-management-system-windows-x64-msi-1.0.0.msi.sha256': {
-    sha256: '7b808f5637b43a177ba196c121e922da45b7cb25d88042b9260c0cdd06439f6b'
-  },
-  'restaurant-management-system-windows-x64-msi-1.0.0.msi.sha512': {
-    sha256: 'b9672074b04cd793c56d5df0c662b5ac2eccf91c64e6b699dffb5dd3908d3664'
+    sha256: 'afeca9a7c4a3a9a495e485c62d014ada90efa6131f817b3465e1ddf02eaa54c8'
   },
   'restaurant-management-system-windows-aarch64-1.0.0.exe': {
-    sha256: 'c7968419512e8f5542ab5a07961651ecccfc18fe3097b862320b3b7ddddb6823'
+    sha256: '8331d335288f932193cbcb5454da0ad8b96957d331b9c5aca614a8c416da9060'
   },
   'restaurant-management-system-windows-i686-1.0.0.exe': {
-    sha256: '21694ecb3129ea193fc01b0021abb41afc935d13c27488fbedbb3745382fe2e7'
+    sha256: '74217286f41a16f4c89360da21046d340d06f696abc6082e8c681c5d4bc00e87'
   },
   // Linux
   'restaurant-management-system-linux-x64-appimage-1.0.0.AppImage': {
-    sha256: 'a27ecaf3d8c43580761a4b7ec749d7babe5389a63f8daa439813ea12ef658b9e'
+    sha256: '88ee56668043c5be6e4e15c41258e750add048f9a67d303177334fd75e57f998'
   },
   'restaurant-management-system-linux-x64-deb-1.0.0.deb': {
-    sha256: 'ed0b61093851c696f92f3252fa7f106415a54de71d5e387e5a26b25ada5d144c'
+    sha256: '1d2a53e72707690d8d1a11d4ad931c3bee35b1cb0457055b1d6750a66092617c'
   },
   'restaurant-management-system-linux-x64-rpm-1.0.0.rpm': {
-    sha256: 'be8a61303c2414cb4940577048bef0a322c7367f31a1d703e63c9c64db1cd223'
+    sha256: '8cd426af05fa8feb29378ffd0eacb43d20d8c3b1fa9472731b3305f167314505'
   },
   // macOS
+  'restaurant-management-system-macos-universal-1.0.0.dmg': {
+    sha256: 'dbb75aaf2aeb670423cfab4d603c324ff58fc9578ceee39866b2815fb091a612'
+  },
   'restaurant-management-system-macos-arm64-1.0.0.dmg': {
-    sha256: 'daf9729fb21f95757780629fe34f195658cb98b58ed29f41fb06959250132912'
+    sha256: '151f01002af3fa68c08e6b05e6b97c93ae5401dfdf9b953214dda6ae8e0ff9d0'
   },
   'restaurant-management-system-macos-x64-1.0.0.dmg': {
-    sha256: 'bc990de827d02fb6f42e0fd57357965463b34faef516cb63f26b8100ed4c572f'
-  },
-  'restaurant-management-system-macos-universal-1.0.0.dmg': {
-    sha256: '02b469d6d579b30d7bb9b8451357df7dfe971c9677c283e52cd2e3556b0e9eaa'
+    sha256: '84c236528180f59d15952beb73326a55681a45e3b309460c769f6ec0075042aa'
   },
   'restaurant-management-system-macos-arm64-app-1.0.0.gz': {
-    sha256: '1ccaf428b5551118ca6d82c88ec5d5654f8ba87ff7ef35f9ffee7c6debcc93ab'
+    sha256: '501d38f49f1ee3a6075740ae7d39e6aa54e67d1129715fb4e0457cc146b79cfb'
   },
   'restaurant-management-system-macos-x64-app-1.0.0.gz': {
-    sha256: 'e76ee4b96ce04026cc88f93cb885a44ba0357fa5003ff0ff2d838ed97e67fc33'
+    sha256: 'e763ff7a29dd46f41379a92bd266cdffa705a76494f7422d7b22e9acb4982e8b'
   },
   // Android
   'restaurant-management-system-android-aarch64-1.0.0.apk': {
-    sha256: 'd353b4869d9290de32d2de4a8ea6aa8dc83e240f66040f6aef103bf9be95d8f2'
+    sha256: '68a9dadbc57ecee4593ccf59454ac5f479959cf43ce18931e3ac9a6fd13c0a0d'
   },
   'restaurant-management-system-android-armv7-1.0.0.apk': {
-    sha256: 'd505ed90c388d7197503657cc359005ad942e0eea6e67e432cd7f5e94fe9793b'
+    sha256: 'ef431d4f6a1041771149ec24eee07721232e6dd8795c358aa921ddb979dbe980'
   },
   'restaurant-management-system-android-i686-1.0.0.apk': {
-    sha256: '11bb46bdce7d9ad8cb33a656574abfcf9d89106035df519d4a63e752f80ccc89'
+    sha256: '5dfb541fbbd7a4a9f275cf7e854cfd2b7be93ec22273ac1b7796b825643e9372'
   },
   'restaurant-management-system-android-x86_64-1.0.0.apk': {
-    sha256: 'c31c83224b22bbd09368bdaf18f8a8ca41824b92589613b9cf62bc04a27d4b30'
+    sha256: '034a65a22546bf07c34d452a39674d8ed8f5168d54b7bc0c588d0673cc84393c'
   },
   // iOS Simulator
   'restaurant-management-system-ios-simulator-aarch64-1.0.0.zip': {
-    sha256: '55770bb8b17f4f70d3f79f126071f20cdf1bbe594e1d960b7125b3205323e391'
+    sha256: '7d4f5169c46bc673dbbb027a01ed8610b5f39634a5bab299e8f0df013be1fdf8'
   },
   'restaurant-management-system-ios-simulator-x86_64-1.0.0.zip': {
-    sha256: '695b41ae48f0ddc89f42782192bc1d7577a1e333cdbe8c43b6f52861fd062101'
+    sha256: 'bccfbdad44536400a65f25fb4eb0eefa75781fa82037d71467f8a1704989c50e'
   }
 };
 

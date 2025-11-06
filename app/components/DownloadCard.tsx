@@ -89,6 +89,42 @@ export default function DownloadCard({
     return { sha256Url, sha512Url };
   };
 
+  const handleDownload = (e: React.MouseEvent<HTMLAnchorElement>, downloadUrl: string) => {
+    // For store links, allow normal navigation
+    if (downloadUrl.includes('apps.apple.com') || downloadUrl.includes('play.google.com')) {
+      return; // Allow normal link behavior for store links
+    }
+
+    // Allow middle-click, Ctrl+Click, Cmd+Click, and right-click to work normally
+    // (user might want to open in new tab intentionally)
+    if (e.ctrlKey || e.metaKey || e.button === 1 || e.button === 2) {
+      return; // Allow default behavior for modifier keys and right/middle click
+    }
+
+    e.preventDefault();
+    
+    // Use iframe method to trigger download without navigating
+    // This works well for GitHub releases and other direct file downloads
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.style.width = '0';
+    iframe.style.height = '0';
+    iframe.style.border = 'none';
+    iframe.src = downloadUrl;
+    document.body.appendChild(iframe);
+    
+    // Remove iframe after download starts (delay ensures download initiates)
+    setTimeout(() => {
+      try {
+        if (iframe.parentNode) {
+          document.body.removeChild(iframe);
+        }
+      } catch (err) {
+        // Iframe might already be removed, ignore error
+      }
+    }, 2000);
+  };
+
   return (
     <motion.div
       variants={itemAnimation}
@@ -107,7 +143,7 @@ export default function DownloadCard({
             <div key={fileIndex} className="space-y-2">
               <motion.a
                 href={downloadUrl}
-                target="_blank"
+                onClick={(e) => handleDownload(e, downloadUrl)}
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
