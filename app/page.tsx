@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
 import Features from './components/Features';
+import Demo from './components/Demo';
 import UseCases from './components/UseCases';
 import Downloads from './components/Downloads';
 import WhyChoose from './components/WhyChoose';
@@ -35,6 +36,9 @@ export default function Home() {
 
       {/* Features Section */}
       <Features />
+
+      {/* Demo Section */}
+      <Demo />
 
       {/* Use Cases Section */}
       <UseCases />
