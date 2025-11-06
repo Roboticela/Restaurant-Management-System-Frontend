@@ -4,22 +4,36 @@ import { motion } from 'framer-motion';
 import { FaDownload } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 import { itemAnimation } from './animations';
+import {
+  getDownloadUrl,
+  getChecksumUrl,
+  type DownloadFileConfig
+} from '../utils/downloads';
 
-interface DownloadFile {
-  format?: string;
-  url?: string;
+interface DownloadFile extends DownloadFileConfig {
   store?: string;
+  label?: string;
+  platform?: string;
 }
 
 interface DownloadCardProps {
   platform: string;
+  platformKey: string;
   icon: IconType;
   files: DownloadFile[];
   color: string;
+  version: string;
 }
 
-export default function DownloadCard({ platform, icon: Icon, files, color }: DownloadCardProps) {
-  const getDownloadUrl = (file: DownloadFile, platform: string) => {
+export default function DownloadCard({
+  platform,
+  platformKey,
+  icon: Icon,
+  files,
+  color,
+  version
+}: DownloadCardProps) {
+  const getFileDownloadUrl = (file: DownloadFile) => {
     // If it's a store link, return the store URL
     if (file.store) {
       if (file.store === 'App Store') {
@@ -30,16 +44,49 @@ export default function DownloadCard({ platform, icon: Icon, files, color }: Dow
     }
     
     // If custom URL is provided, use it
-    if (file.url) {
-      return file.url;
+    if ((file as any).url) {
+      return (file as any).url;
     }
     
-    // Default to GitHub releases (this will be updated with actual release URLs)
-    if (file.format) {
-      const format = file.format.replace('.', '');
-      return `https://github.com/Roboticela/Restaurant-Management-System/releases/latest/download/${platform.toLowerCase()}-${format}`;
+    // Generate dynamic URL based on platform, arch, format, and version
+    if (file.format && file.arch) {
+      const platformForUrl = file.platform || platformKey;
+      return getDownloadUrl(platformForUrl, file.arch, file.format, version, {
+        formatPrefix: file.formatPrefix,
+        platformSuffix: file.platformSuffix
+      });
     }
+    
     return '#';
+  };
+
+  const getFileLabel = (file: DownloadFile) => {
+    if (file.store) {
+      return file.store;
+    }
+    if (file.label) {
+      return file.label;
+    }
+    if (file.format) {
+      return `.${file.format}`;
+    }
+    return 'Download';
+  };
+
+  const getChecksumLinks = (file: DownloadFile) => {
+    if (file.store || !file.format || !file.arch) {
+      return null;
+    }
+    
+    const platformForUrl = file.platform || platformKey;
+    const options = {
+      formatPrefix: file.formatPrefix,
+      platformSuffix: file.platformSuffix
+    };
+    const sha256Url = getChecksumUrl(platformForUrl, file.arch, file.format, 'sha256', version, options);
+    const sha512Url = getChecksumUrl(platformForUrl, file.arch, file.format, 'sha512', version, options);
+    
+    return { sha256Url, sha512Url };
   };
 
   return (
@@ -51,20 +98,50 @@ export default function DownloadCard({ platform, icon: Icon, files, color }: Dow
       <Icon className="w-16 h-16 mx-auto mb-4" />
       <h3 className="text-2xl font-bold mb-6">{platform}</h3>
       <div className="space-y-3">
-        {files.map((file, fileIndex) => (
-          <motion.a
-            key={fileIndex}
-            href={getDownloadUrl(file, platform)}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-full py-3 bg-white/20 hover:bg-white/30 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <FaDownload className="text-lg" />
-            <span className="text-sm md:text-base">{file.store || file.format}</span>
-          </motion.a>
-        ))}
+        {files.map((file, fileIndex) => {
+          const downloadUrl = getFileDownloadUrl(file);
+          const fileLabel = getFileLabel(file);
+          const checksumLinks = getChecksumLinks(file);
+          
+          return (
+            <div key={fileIndex} className="space-y-2">
+              <motion.a
+                href={downloadUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full py-3 bg-white/20 hover:bg-white/30 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <FaDownload className="text-lg" />
+                <span className="text-sm md:text-base">{fileLabel}</span>
+              </motion.a>
+              {checksumLinks && (
+                <div className="flex gap-2 justify-center text-xs">
+                  <a
+                    href={checksumLinks.sha256Url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/70 hover:text-white/90 underline"
+                    title="SHA256 Checksum"
+                  >
+                    SHA256
+                  </a>
+                  <span className="text-white/50">|</span>
+                  <a
+                    href={checksumLinks.sha512Url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/70 hover:text-white/90 underline"
+                    title="SHA512 Checksum"
+                  >
+                    SHA512
+                  </a>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </motion.div>
   );

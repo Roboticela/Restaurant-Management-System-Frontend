@@ -4,52 +4,70 @@ import { motion } from 'framer-motion';
 import { FaWindows, FaLinux, FaApple, FaAndroid, FaMobile } from 'react-icons/fa';
 import { containerAnimation } from './animations';
 import DownloadCard from './DownloadCard';
+import {
+  APP_VERSION,
+  type DownloadFileConfig
+} from '../utils/downloads';
 
 const downloadLinks = [
   {
     platform: 'Windows',
+    platformKey: 'windows',
     icon: FaWindows,
     files: [
-      { format: '.exe', url: 'https://github.com/Roboticela/Restaurant-Management-System/releases/latest/download/restaurant-management-system-setup.exe' },
-      { format: '.msi', url: 'https://github.com/Roboticela/Restaurant-Management-System/releases/latest/download/restaurant-management-system-setup.msi' }
-    ],
+      { format: 'exe', arch: 'x64', label: 'Windows x64 (.exe)' },
+      { format: 'msi', arch: 'x64', label: 'Windows x64 (.msi)', formatPrefix: 'msi' },
+      { format: 'exe', arch: 'aarch64', label: 'Windows ARM64 (.exe)' },
+      { format: 'exe', arch: 'i686', label: 'Windows 32-bit (.exe)' }
+    ] as DownloadFileConfig[],
     color: 'from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700'
   },
   {
     platform: 'Linux',
+    platformKey: 'linux',
     icon: FaLinux,
     files: [
-      { format: '.AppImage', url: 'https://github.com/Roboticela/Restaurant-Management-System/releases/latest/download/restaurant-management-system.AppImage' },
-      { format: '.deb', url: 'https://github.com/Roboticela/Restaurant-Management-System/releases/latest/download/restaurant-management-system.deb' },
-      { format: '.rpm', url: 'https://github.com/Roboticela/Restaurant-Management-System/releases/latest/download/restaurant-management-system.rpm' }
-    ],
+      { format: 'AppImage', arch: 'x64', label: 'Linux x64 (.AppImage)', formatPrefix: 'appimage' },
+      { format: 'deb', arch: 'x64', label: 'Linux x64 (.deb)', formatPrefix: 'deb' },
+      { format: 'rpm', arch: 'x64', label: 'Linux x64 (.rpm)', formatPrefix: 'rpm' }
+    ] as DownloadFileConfig[],
     color: 'from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-700'
   },
   {
     platform: 'macOS',
+    platformKey: 'macos',
     icon: FaApple,
     files: [
-      { format: '.dmg', url: 'https://github.com/Roboticela/Restaurant-Management-System/releases/latest/download/restaurant-management-system.dmg' },
-      { format: '.app', url: 'https://github.com/Roboticela/Restaurant-Management-System/releases/latest/download/restaurant-management-system.app.tar.gz' }
-    ],
+      { format: 'dmg', arch: 'universal', label: 'macOS Universal (.dmg)' },
+      { format: 'dmg', arch: 'arm64', label: 'macOS Apple Silicon (.dmg)' },
+      { format: 'dmg', arch: 'x64', label: 'macOS Intel (.dmg)' },
+      { format: 'gz', arch: 'arm64', label: 'macOS Apple Silicon App (.gz)', formatPrefix: 'app' },
+      { format: 'gz', arch: 'x64', label: 'macOS Intel App (.gz)', formatPrefix: 'app' }
+    ] as DownloadFileConfig[],
     color: 'from-gray-600 to-gray-700 dark:from-gray-700 dark:to-gray-800'
   },
   {
     platform: 'iOS',
+    platformKey: 'ios',
     icon: FaMobile,
     files: [
-      { format: '.ipa', url: 'https://github.com/Roboticela/Restaurant-Management-System/releases/latest/download/restaurant-management-system.ipa' },
+      { format: 'zip', arch: 'aarch64', label: 'iOS Simulator ARM64 (.zip)', platformSuffix: 'simulator' },
+      { format: 'zip', arch: 'x86_64', label: 'iOS Simulator x64 (.zip)', platformSuffix: 'simulator' },
       { store: 'App Store' }
-    ],
+    ] as (DownloadFileConfig & { store?: string })[],
     color: 'from-indigo-500 to-indigo-600 dark:from-indigo-600 dark:to-indigo-700'
   },
   {
     platform: 'Android',
+    platformKey: 'android',
     icon: FaAndroid,
     files: [
-      { format: '.apk', url: 'https://github.com/Roboticela/Restaurant-Management-System/releases/latest/download/restaurant-management-system.apk' },
+      { format: 'apk', arch: 'aarch64', label: 'Android ARM64 (.apk)' },
+      { format: 'apk', arch: 'armv7', label: 'Android ARMv7 (.apk)' },
+      { format: 'apk', arch: 'x86_64', label: 'Android x64 (.apk)' },
+      { format: 'apk', arch: 'i686', label: 'Android x86 (.apk)' },
       { store: 'Play Store' }
-    ],
+    ] as (DownloadFileConfig & { store?: string })[],
     color: 'from-green-500 to-green-600 dark:from-green-600 dark:to-green-700'
   }
 ];
@@ -74,7 +92,7 @@ export default function Downloads() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto"
           variants={containerAnimation}
           initial="hidden"
           whileInView="show"
@@ -84,9 +102,11 @@ export default function Downloads() {
             <DownloadCard
               key={index}
               platform={platform.platform}
+              platformKey={platform.platformKey}
               icon={platform.icon}
               files={platform.files}
               color={platform.color}
+              version={APP_VERSION}
             />
           ))}
         </motion.div>
